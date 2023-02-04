@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -ex
+
+: ${INTEGRATION_TEST:=true}
+
+if [[ ! $TAG ]]; then
+    TAG=app
+fi
+
+docker pull "$TAG" || true
+
+app_output=$(docker run -e APP_NAME="$APP_NAME" -e INTEGRATION_TEST="$INTEGRATION_TEST" "$TAG")
+
+# Should be true
+[[ $app_output = $APP_NAME ]]
+
+# Should be false
+! [[ $app_output = $RANDOM ]]
+
+echo "Integration test: Ok"
