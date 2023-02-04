@@ -1,0 +1,14 @@
+name: unit-test
+on: [pull_request]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    name: Run unit-tests
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout current commit
+        with:
+          ref: ${{ github.ref }}
+      - name: Run unit-tests
+        run: make test
