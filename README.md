@@ -1,5 +1,6 @@
 # playground-python-github-actions
 
+[![integration-test-deployment](https://github.com/stefanandres/playground-python-github-actions/actions/workflows/main.yaml/badge.svg)](https://github.com/stefanandres/playground-python-github-actions/actions/workflows/main.yaml)
 
 This repository contains a very basic python app with very basic unit-testing.
 
